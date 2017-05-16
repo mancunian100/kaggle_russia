@@ -31,7 +31,9 @@ full['life_ratio']=full['life_sq']/full['full_sq']
 full['kitch_ratio']=full['kitch_sq']/full['full_sq']
 full['sq_per_room']=(full['life_sq']-full['kitch_sq'])/full['num_room']#0.31325
 
-
+###-----------------------------------------------------------------
+###下面是对结果没有提升的特征
+###----------------------------------------------------
 full['sq_per_room1']=full['full_sq']/full['num_room']#0.31543,结果下降
 
 
@@ -78,7 +80,7 @@ cv_output[['train-rmse-mean', 'test-rmse-mean']].plot()
 
 num_boost_rounds = len(cv_output)
 model = xgb.train(dict(xgb_params, silent=0), dtrain, num_boost_round= num_boost_rounds)
-
+#特征重要性画图
 fig, ax = plt.subplots(1, 1, figsize=(8, 13))
 xgb.plot_importance(model,  height=0.5, ax=ax)
 plt.show(block=False)
@@ -96,7 +98,7 @@ output.to_csv('kaggle/russia/result.csv', index=False)
 
 
 
-#筛选出一些重要性较高特征
+#筛选出一些重要性较高特征，再进行预测
 features=[]
 a=model.get_fscore()
 importance_map=sorted(a.items(), key=lambda d:d[1],reverse=True)
