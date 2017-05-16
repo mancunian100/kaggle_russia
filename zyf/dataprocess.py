@@ -148,12 +148,6 @@ for att in missing_df['columns_name']:
     pred = reg_xgb.predict(full[full[att].isnull()].drop(att, axis=1))
     full.loc[(full[att].isnull()), att] = pred
 
-#缺失值处理完毕，接下来挖掘新的特征
-full['floor_inverse']=full['max_floor']-full['floor']
-full['floor_ratio']=full['floor']/full['max_floor']
-#生活面积占总面积的比值,厨房面积占的比例，每个房间的面积大小
-full['life_ratio']=full['life_sq']/full['full_sq']
-full['kitch_ratio']=full['kitch_sq']/full['full_sq']
-full['sq_per_room']=full['full_sq']/full['num_room']
+
 
 full.to_csv('kaggle/russia/full.csv', index=False)

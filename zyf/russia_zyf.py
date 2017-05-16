@@ -19,12 +19,42 @@ train = pd.read_csv('kaggle/russia/train.csv')
 test = pd.read_csv('kaggle/russia/test.csv')
 macro = pd.read_csv('kaggle/russia/macro.csv')
 id_test = test.id
+full = pd.read_csv('kaggle/russia/full.csv')
+
+
+#缺失值处理完毕，接下来挖掘新的特征
+#房子本身的信息
+full['floor_inverse']=full['max_floor']-full['floor']
+full['floor_ratio']=full['floor']/full['max_floor']
+#生活面积占总面积的比值,厨房面积占的比例，每个房间的面积大小
+full['life_ratio']=full['life_sq']/full['full_sq']
+full['kitch_ratio']=full['kitch_sq']/full['full_sq']
+full['sq_per_room']=(full['life_sq']-full['kitch_sq'])/full['num_room']
+
+full['extra_area']=full['full_sq']-full['life_sq']
+
+#人口信息
+full['pop_density_raion']=full['raion_popul']/full['area_m']
+full['young_proportion ']=full['young_all']/full['area_m']
+full['work_proportion ']=full['work_all']/full['area_m']
+full['retire_proportion ']=full['ekder_all']/full['area_m']
+
+#售卖时距离建造的时间
+
+#教育信息
+full['ratio_preschool']=full['children_preschool']/full['preschool_quota']
+full['ratio_preschool']=full['children_preschool']/full['preschool_quota']
+
+
+
+
+
 
 ##=------------------------------------------------------------------
 #特征处理完毕，接下来选择模型预测，融合
 ##=------------------------------------------------------------------
 
-full = pd.read_csv('kaggle/russia/full1.csv')
+
 y_train = train["price_doc"]
 x_train=full[:30471]
 x_test=full[30471:]

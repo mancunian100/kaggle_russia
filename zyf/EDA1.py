@@ -10,8 +10,8 @@ pd.options.mode.chained_assignment = None  # default='warn'
 pd.set_option('display.max_columns', 500)
 
 
-train_df = pd.read_csv('/Users/apple/Desktop/Kaggle/train.csv')
-test_df = pd.read_csv('/Users/apple/Desktop/Kaggle/test.csv')
+train_df = pd.read_csv('kaggle/russia/train.csv')
+test_df = pd.read_csv('kaggle/russia/test.csv')
 #macro = pd.read_csv('Users/apple/Desktop/Kaggle/macro.csv')
 
 train_df.shape
@@ -145,6 +145,22 @@ plt.ylabel('Median Price', fontsize=12)
 plt.xlabel('Floor number', fontsize=12)
 plt.xticks(rotation='vertical')
 plt.show(block=False)
+#看一下楼层的数量分布
+plt.figure(figsize=(12,8))
+sns.countplot(x="floor", data=train_df)
+plt.ylabel('Count', fontsize=12)
+plt.xlabel('floor number', fontsize=12)
+plt.xticks(rotation='vertical')
+plt.show(block=False)
+
+plt.figure(figsize=(12,8))
+sns.boxplot(x="floor", y="price_doc", data=train_df)
+plt.ylabel('Median Price', fontsize=12)
+plt.xlabel(' Floor number', fontsize=12)
+plt.xticks(rotation='vertical')
+plt.show(block=False)
+
+
 
 #最大楼层
 plt.figure(figsize=(12,8))
