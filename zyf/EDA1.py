@@ -10,9 +10,9 @@ pd.options.mode.chained_assignment = None  # default='warn'
 pd.set_option('display.max_columns', 500)
 
 
-train_df = pd.read_csv('kaggle/russia/train.csv')
-test_df = pd.read_csv('kaggle/russia/test.csv')
-macro = pd.read_csv('kaggle/russia/macro.csv')
+train_df = pd.read_csv('/Users/apple/Desktop/Kaggle/train.csv')
+test_df = pd.read_csv('/Users/apple/Desktop/Kaggle/test.csv')
+#macro = pd.read_csv('Users/apple/Desktop/Kaggle/macro.csv')
 
 train_df.shape
 
