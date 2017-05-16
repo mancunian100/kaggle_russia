@@ -81,18 +81,64 @@ fig, ax = plt.subplots(1, 1, figsize=(8, 13))
 xgb.plot_importance(model,  height=0.5, ax=ax)
 plt.show(block=False)
 
+
+
+
 y_predict = model.predict(dtest)
 output = pd.DataFrame({'id': id_test, 'price_doc': y_predict})
 output.head()
+
 
 output.to_csv('kaggle/russia/result.csv', index=False)
 
 
 
 
+#筛选出一些重要性较高特征
+features=[]
+a=model.get_fscore()
+importance_map=sorted(a.items(), key=lambda d:d[1],reverse=True)
+for x in importance_map[:220]:
+    # print(x)
+    features.append(x[0])
 
 
 
+y_train = train["price_doc"]
+x_train=full[:30471][features]
+x_test=full[30471:][features]
+xgb_params = {
+    'eta': 0.05,#0.05
+    'max_depth': 5,
+    'subsample': 0.7,
+    'colsample_bytree': 0.7,
+    'objective': 'reg:linear',
+    'eval_metric': 'rmse',
+    'silent': 1
+}
+
+dtrain = xgb.DMatrix(x_train, y_train)
+dtest = xgb.DMatrix(x_test)
+
+cv_output = xgb.cv(xgb_params, dtrain, num_boost_round=1000, early_stopping_rounds=20,verbose_eval=50, show_stdv=False)
+cv_output[['train-rmse-mean', 'test-rmse-mean']].plot()
+
+num_boost_rounds = len(cv_output)
+model = xgb.train(dict(xgb_params, silent=0), dtrain, num_boost_round= num_boost_rounds)
+
+fig, ax = plt.subplots(1, 1, figsize=(8, 13))
+xgb.plot_importance(model,  height=0.5, ax=ax)
+plt.show(block=False)
+
+
+
+
+y_predict = model.predict(dtest)
+output = pd.DataFrame({'id': id_test, 'price_doc': y_predict})
+output.head()
+
+
+output.to_csv('kaggle/russia/result.csv', index=False)
 
 
 
