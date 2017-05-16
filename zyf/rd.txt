@@ -1,0 +1,575 @@
+提交记录
+05_16_1  0.31492  full特征，对所有sub_area进行get_dummies，得到的结果 5000 1000
+05_16_2  0.31431  1000 20
+
+
+
+
+
+
+
+
+
+
+
+
+记录一下 处理缺失值时候的绝对误差
+life_sq Mean absolute error of test data: 5.567118347430341
+floor Mean absolute error of test data: 3.4924663739067765
+max_floor Mean absolute error of test data: 2.753123071648263
+material Mean absolute error of test data: 0.8119963294500531
+#明显不能这么处理，最起码在预测之前应该处理一下
+build_year Mean absolute error of test data: 119.80718112747348
+
+num_room Mean absolute error of test data: 0.1441465371914762
+kitch_sq Mean absolute error of test data: 2.6531862779727686
+state Mean absolute error of test data: 0.42831349685363834
+preschool_quota Mean absolute error of test data: 52.859991308480886
+注意preschool_quota的平均值的是3269
+
+
+
+
+
+
+
+Bibirevo
+Nagatinskij Zaton
+Tekstil'shhiki
+Mitino
+Basmannoe
+Nizhegorodskoe
+Sokol'niki
+Koptevo
+Kuncevo
+Kosino-Uhtomskoe
+Zapadnoe Degunino
+Presnenskoe
+Lefortovo
+Mar'ino
+Kuz'minki
+Nagornoe
+Gol'janovo
+Vnukovo
+Juzhnoe Tushino
+Severnoe Tushino
+Chertanovo Central'noe
+Fili Davydkovo
+Otradnoe
+Novo-Peredelkino
+Bogorodskoe
+Jaroslavskoe
+Strogino
+Hovrino
+Moskvorech'e-Saburovo
+Staroe Krjukovo
+Ljublino
+Caricyno
+Veshnjaki
+Danilovskoe
+Preobrazhenskoe
+Kon'kovo
+Brateevo
+Vostochnoe Izmajlovo
+Vyhino-Zhulebino
+Donskoe
+Novogireevo
+Juzhnoe Butovo
+Sokol
+Kurkino
+Izmajlovo
+Severnoe Medvedkovo
+Rostokino
+Orehovo-Borisovo Severnoe
+Ochakovo-Matveevskoe
+Taganskoe
+Dmitrovskoe
+Orehovo-Borisovo Juzhnoe
+Teplyj Stan
+Babushkinskoe
+Pokrovskoe Streshnevo
+Obruchevskoe
+Filevskij Park
+Troparevo-Nikulino
+Severnoe Butovo
+Hamovniki
+Solncevo
+Dorogomilovo
+Timirjazevskoe
+Lianozovo
+Pechatniki
+Krjukovo
+Jasenevo
+Chertanovo Severnoe
+Rjazanskij
+Silino
+Ivanovskoe
+Golovinskoe
+Novokosino
+Nagatino-Sadovniki
+Birjulevo Vostochnoe
+Severnoe Izmajlovo
+Sokolinaja Gora
+Vostochnoe Degunino
+Prospekt Vernadskogo
+Savelki
+Ajeroport
+Vojkovskoe
+Beskudnikovskoe
+Krylatskoe
+Juzhnoportovoe
+Perovo
+Akademicheskoe
+Horoshevo-Mnevniki
+Shhukino
+Kapotnja
+Horoshevskoe
+Marfino
+Chertanovo Juzhnoe
+Savelovskoe
+Birjulevo Zapadnoe
+Nekrasovka
+Cheremushki
+Sviblovo
+Alekseevskoe
+Krasnosel'skoe
+Kotlovka
+Zjuzino
+Ostankinskoe
+Tverskoe
+Losinoostrovskoe
+Butyrskoe
+Matushkino
+Metrogorodok
+Juzhnoe Medvedkovo
+Lomonosovskoe
+Jakimanka
+Mozhajskoe
+Levoberezhnoe
+Mar'ina Roshha
+Gagarinskoe
+Zamoskvorech'e
+Altuf'evskoe
+Ramenki
+Zjablikovo
+Meshhanskoe
+Severnoe
+Begovoe
+Arbat
+Poselenie Sosenskoe
+Poselenie Moskovskij
+Poselenie Pervomajskoe
+Poselenie Desjonovskoe
+Poselenie Voskresenskoe
+Poselenie Mosrentgen
+Troickij okrug
+Poselenie Shherbinka
+Poselenie Filimonkovskoe
+Poselenie Vnukovskoe
+Poselenie Marushkinskoe
+Poselenie Shhapovskoe
+Poselenie Rjazanovskoe
+Poselenie Kokoshkino
+Vostochnoe
+Poselenie Krasnopahorskoe
+Poselenie Novofedorovskoe
+Poselenie Voronovskoe
+Poselenie Klenovskoe
+Poselenie Rogovskoe
+Poselenie Kievskij
+Molzhaninovskoe
+Poselenie Mihajlovo-Jarcevskoe
+
+#zelenogradsky(5)
+Krjukovo
+Staroe Krjukovo
+Savelki
+Matushkino
+Silino
+
+#western(13)
+Vnukovo
+Kuncevo
+Mozhajskoe
+Novo-Peredelkino
+Solncevo
+Krylatskoe
+Filevskij Park
+Fili Davydkovo
+Dorogomilovo
+Ochakovo-Matveevskoe
+Ramenki
+Prospekt Vernadskogo
+Troparevo-Nikulino
+
+#troitsky(10)
+Poselenie Rogovskoe
+Poselenie Klenovskoe
+Poselenie Voronovskoe
+Poselenie Kievskij
+Poselenie Novofedorovskoe
+Poselenie Mihajlovo-Jarcevskoe
+Poselenie Shhapovskoe
+Poselenie Krasnopahorskoe
+Troickij okrug
+Poselenie Pervomajskoe
+
+#southern （16）
+Nagatinskij Zaton
+Nagornoe
+Chertanovo Central'noe
+Moskvorech'e-Saburovo
+Caricyno
+Danilovskoe
+Brateevo
+Donskoe
+Orehovo-Borisovo Severnoe
+Orehovo-Borisovo Juzhnoe
+Chertanovo Severnoe
+Nagatino-Sadovniki
+Birjulevo Vostochnoe
+Chertanovo Juzhnoe
+Birjulevo Zapadnoe
+Zjablikovo
+
+#southWestern（12）
+Kon'kovo
+Juzhnoe Butovo
+Teplyj Stan
+Obruchevskoe
+Severnoe Butovo
+Jasenevo
+Akademicheskoe
+Cheremushki
+Kotlovka
+Zjuzino
+Lomonosovskoe
+Gagarinskoe
+
+#southEastern（12）
+Tekstil'shhiki
+Nizhegorodskoe
+Lefortovo
+Mar'ino
+Kuz'minki
+Ljublino
+Vyhino-Zhulebino
+Pechatniki
+Rjazanskij
+Juzhnoportovoe
+Kapotnja
+Nekrasovka
+
+
+#novomoskovsky （11）
+Poselenie Vnukovskoe
+Poselenie Kokoshkino
+Poselenie Marushkinskoe
+Poselenie Filimonkovskoe
+Poselenie Moskovskij
+Poselenie Mosrentgen
+Poselenie Sosenskoe
+Poselenie Voskresenskoe
+Poselenie Desjonovskoe
+Poselenie Rjazanovskoe
+Poselenie Shherbinka
+
+#northern （16）
+Molzhaninovskoe
+Levoberezhnoe
+Hovrino
+Zapadnoe Degunino
+Dmitrovskoe
+Vostochnoe Degunino
+Beskudnikovskoe
+Golovinskoe
+Vojkovskoe
+Koptevo
+Timirjazevskoe
+Savelovskoe
+Ajeroport
+Sokol
+Horoshevskoe
+Begovoe
+
+#northWester (8)
+Kurkino
+Severnoe Tushino
+Juzhnoe Tushino
+Mitino
+Pokrovskoe Streshnevo
+Strogino
+Shhukino
+Horoshevo-Mnevniki
+
+#northEastern   (17)
+Severnoe
+Lianozovo
+Bibirevo
+Severnoe Medvedkovo
+Losinoostrovskoe
+Jaroslavskoe
+Babushkinskoe
+Altuf'evskoe
+Juzhnoe Medvedkovo
+Otradnoe
+Sviblovo
+Marfino
+Ostankinskoe
+Rostokino
+Alekseevskoe
+Butyrskoe
+Mar'ina Roshha
+#eastern  16个
+Bogorodskoe
+Sokol'niki
+Preobrazhenskoe
+Sokolinaja Gora
+Metrogorodok
+Gol'janovo
+Severnoe Izmajlovo
+Izmajlovo
+Vostochnoe Izmajlovo
+Ivanovskoe
+Perovo
+Novogireevo
+Veshnjaki
+Novokosino
+Kosino-Uhtomskoe
+Vostochnoe
+
+#central 10个
+Presnenskoe
+Tverskoe
+Meshhanskoe
+Krasnosel'skoe
+Basmannoe
+Taganskoe
+Zamoskvorech'e
+Jakimanka
+Hamovniki
+Arbat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
