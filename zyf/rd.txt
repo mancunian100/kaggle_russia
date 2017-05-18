@@ -1,18 +1,26 @@
-提交记录
+提交记录  排行榜分数  特征改变情况或其他变化     本地cv分数
 05_16_1  0.31492  full特征，对所有sub_area进行get_dummies，得到的结果 5000 1000
 05_16_2  0.31431  1000 20
 05_16_3   0.31502  将地区分块之后，没想到分数反而下降了
 05_16_4   0.31864  加入了一些新的特征，结果分数暴跌心疼自己
 05_16_5   0.31614   筛选出重要性前220个特征，分数还是微降
 
+6  0.31325  2773124.78043
+7  0.31543  sq_per_room1   2797443.98023
+8   0.31343    extra_area    2790186.22499
+9   0.31639  pop_density_raion  2795764.05911
+10  0.31548    young_proportion     2795447.4847
+11  0.31443    work_proportion      2794613.79882
+12   0.31481  young +work +retire_proportion  2786573.54162
+13  0.31518  ratio_preschool    2799003.06546
 
-
-
-
-
-
-
-
+05_17
+只是full.csv中的特征  0.31757   771905
+full+floor_inverse  0.31542
+full+floor_inverse+floor_ratio   0.31975
+full+floor_inverse +life_ratio  0.31680
+full+floor_inverse+kitch_ratio   0.31626
+full+floor_inverse+sq_per_room  0.31610
 
 
 
